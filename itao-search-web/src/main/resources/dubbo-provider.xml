@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="itao-search"/>
+
+    <dubbo:registry address="zookeeper://192.168.0.115:2181?backup=192.168.0.114:2181,192.168.0.113:2181" check="false" subscribe="false" register=""/>
+
+
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <dubbo:provider timeout="5000"/>
+
+    <dubbo:service interface="com.itao.search.shard.SolrSearchAPI" ref="solrSearchService" version="1.0.0"/>
+
+
+
+</beans>

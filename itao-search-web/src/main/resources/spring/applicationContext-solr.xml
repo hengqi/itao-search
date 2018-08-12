@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <!-- 配置SolrServer对象 -->
+    <!-- 单机版 -->
+    <bean id="httpSolrClient" class="org.apache.solr.client.solrj.impl.HttpSolrClient">
+        <constructor-arg name="builder" value="${SOLR.SERVER.URL}"></constructor-arg>
+    </bean>
+
+    <bean id="solrSearchDao" class="com.itao.search.solr.SolrSearchDao"/>
+</beans>
